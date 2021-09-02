@@ -17,3 +17,18 @@ def two_sum(arr)
     end
     new_arr
 end
+
+class Array
+    def my_transpose
+        dim = self.first.count
+        raise "IndexError" if !self.all? {|row| row.length == dim}
+
+        columns = Array.new(dim) { Array.new(dim) }
+        (0...dim).each do |i|
+            (0...dim).each do |j|
+                columns[j][i] = self[i][j] 
+            end
+        end
+        columns
+    end
+end

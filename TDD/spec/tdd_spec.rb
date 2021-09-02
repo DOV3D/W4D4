@@ -31,3 +31,16 @@ describe "#two_sum" do
         expect(two_sum(same_idx_arr)).to eq([[0, 2],[0, 3],[1, 2],[1, 3]])
     end
 end
+
+describe Array do 
+    let (:wrong_arr) { [[1, 2, 3], [4, 5], [7, 8, 9]] }
+    let (:arr) { [[1, 2, 3], [4, 5, 6], [7, 8, 9]] }
+    describe "#my_transpose" do
+        it "each sub array must be the same length" do
+            expect{wrong_arr.my_transpose}.to raise_error("IndexError")
+        end 
+        it "transpose 2d array" do
+            expect(arr.my_transpose).to eq([[1,4,7],[2,5,8],[3,6,9]])
+        end
+    end
+end
