@@ -32,3 +32,20 @@ class Array
         columns
     end
 end
+
+def stock_picker(prices)
+    profits = []
+    buy_sell = []
+
+
+    prices.each_with_index do |price1, day1|
+        prices.each_with_index do |price2, day2|
+           next if day2 < day1
+            profits << (price2 - price1)
+            buy_sell << [day1, day2]
+
+        end
+    end
+
+    most_profitable
+end

@@ -44,3 +44,12 @@ describe Array do
         end
     end
 end
+
+describe "#stock_picker" do
+    #takes an array of stock prices
+    #returns the most profitable pair of days on which to buy the stock and then sell the stock
+    
+end
+
+
+
