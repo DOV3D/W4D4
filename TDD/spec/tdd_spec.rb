@@ -1,4 +1,18 @@
-require "tdd"
+# require "tdd"
+# describe "Array#my_uniq" do
+#     before(:each) do
+#         expect_any_instance_of(Array).not_to receive(:uniq)
+#     end
+#         subject(:array) { [1, 1, 2, 3, 4, 4] }
+
+#         it "should remove duplicates from array" do
+#             expect([1, 1, 2, 3, 4, 4].my_uniq).to eq([1,2,3,4])
+#         end
+#         it "return value should not equal original array" do
+#             expect(array.my_uniq).to_not eq(array)
+#         end
+# end
+
 describe Array do
     describe "#my_uniq" do
         subject(:array) { [1, 1, 2, 3, 4, 4] }
@@ -6,7 +20,7 @@ describe Array do
             expect(array).to be_a(Array)
         end
         it "should not use #uniq" do 
-            expect(array.my_uniq).to_not receive(:uniq)
+            expect(array.my_uniq).not_to receive(:uniq)
         end
         it "should remove duplicates from array" do
             expect([1, 1, 2, 3, 4, 4].my_uniq).to eq([1,2,3,4])
@@ -33,22 +47,31 @@ describe "#two_sum" do
 end
 
 describe Array do 
-    let (:wrong_arr) { [[1, 2, 3], [4, 5], [7, 8, 9]] }
-    let (:arr) { [[1, 2, 3], [4, 5, 6], [7, 8, 9]] }
     describe "#my_transpose" do
+    let(:wrong_arr) { [[1, 2, 3], [4, 5], [7, 8, 9]] }
+    let(:arr) { [[1, 2, 3], [4, 5, 6], [7, 8, 9]] }
+    # before(:each) do
+        it "should not use the #transpose method" do
+            expect(arr).not_to receive(:transpose)
+        end
         it "each sub array must be the same length" do
             expect{wrong_arr.my_transpose}.to raise_error("IndexError")
         end 
         it "transpose 2d array" do
             expect(arr.my_transpose).to eq([[1,4,7],[2,5,8],[3,6,9]])
         end
+    # end
     end
 end
 
 describe "#stock_picker" do
-    #takes an array of stock prices
+    let (:prices1) { [5,0,1,2,4,9] }
+
+    it "takes an array of stock prices" do
+        expect()
+    end
     #returns the most profitable pair of days on which to buy the stock and then sell the stock
-    
+    #most profitable pair index1 must be less than index2
 end
 
 

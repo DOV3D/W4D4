@@ -1,5 +1,6 @@
 class Array
     def my_uniq
+        # self.uniq
         uniq = []
        self.each do |ele|
             uniq << ele if uniq.none?(ele)
@@ -20,16 +21,17 @@ end
 
 class Array
     def my_transpose
-        dim = self.first.count
-        raise "IndexError" if !self.all? {|row| row.length == dim}
+        self.transpose
+        # dim = self.first.count
+        # raise "IndexError" if !self.all? {|row| row.length == dim}
 
-        columns = Array.new(dim) { Array.new(dim) }
-        (0...dim).each do |i|
-            (0...dim).each do |j|
-                columns[j][i] = self[i][j] 
-            end
-        end
-        columns
+        # columns = Array.new(dim) { Array.new(dim) }
+        # (0...dim).each do |i|
+        #     (0...dim).each do |j|
+        #         columns[j][i] = self[i][j] 
+        #     end
+        # end
+        # columns
     end
 end
 
@@ -46,6 +48,7 @@ def stock_picker(prices)
 
         end
     end
-
-    most_profitable
+    max = profits.max
+    index = profits.index(max)
+    buy_sell[index]
 end
